@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  height: 90%;
+  width: 90%;
+  margin: auto;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-container {
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+}
+
+mat-icon {
+  margin: 0px 0px 0px 0px !important;
+}

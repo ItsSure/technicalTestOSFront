@@ -1,0 +1,66 @@
+<h2 mat-dialog-title>Registrar Alumno</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form" class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Cédula</mat-label>
+      <input formControlName="id" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre Completo</mat-label>
+      <input formControlName="fullName" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Teléfono</mat-label>
+      <input formControlName="phone" matInput type="tel" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Correo</mat-label>
+      <input formControlName="email" matInput type="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dirección</mat-label>
+      <input formControlName="address" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Genero</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="masculino">Masculino</mat-option>
+        <mat-option value="femenino">Femenino</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Numero Matricula</mat-label>
+      <input formControlName="registrationNumber" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Programa</mat-label>
+      <input formControlName="program"matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nota Promedio</mat-label>
+      <input matInput formControlName="averageGrade" type="number" min="0" max="100" />
+    </mat-form-field>
+
+    <!-- <mat-slide-toggle>Parqueadero</mat-slide-toggle> -->
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    [disabled]="form.invalid"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="onSubmit()"
+  >
+    Registrar
+  </button>
+</mat-dialog-actions>

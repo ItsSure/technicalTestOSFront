@@ -1,0 +1,97 @@
+<div class="container">
+  <mat-card class="card" appearance="outlined">
+    <mat-card-header class="card-header">
+      <h1>Profesores</h1>
+      <button
+        matTooltip="Registrar profesor"
+        mat-flat-button
+        (click)="openDialog()"
+      >
+        <mat-icon>add</mat-icon>
+      </button></mat-card-header
+    >
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Cédula</th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef>Nombre Completo</th>
+            <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+            <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Correo</th>
+            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef>Genero</th>
+            <td mat-cell *matCellDef="let element">
+              @if (element.gender == 'masculino') {
+              <mat-icon fontIcon="male" />
+              } @else{
+              <mat-icon fontIcon="female" />
+              }
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dependency">
+            <th mat-header-cell *matHeaderCellDef>Dependencia</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.dependency }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef>Materia</th>
+            <td mat-cell *matCellDef="let element">{{ element.subject }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="salary">
+            <th mat-header-cell *matHeaderCellDef>Salario</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.salary | currency }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="parkingPass">
+            <th mat-header-cell *matHeaderCellDef>Parqueadero</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-slide-toggle disabled [checked]="element.parkingPass" />
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                matTooltip="Eliminar profesor"
+                mat-stroked-button
+                (click)="deleteProfesor(element.id)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

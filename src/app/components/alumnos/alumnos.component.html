@@ -1,0 +1,97 @@
+<div class="container">
+  <mat-card class="card" appearance="outlined">
+    <mat-card-header class="card-header">
+      <h1>Alumnos</h1>
+      <button
+        matTooltip="Registrar alumno"
+        mat-flat-button
+        (click)="openDialog()"
+      >
+        <mat-icon>add</mat-icon>
+      </button></mat-card-header
+    >
+    <mat-card-content>
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Cédula</th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef>Nombre Completo</th>
+            <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+            <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Correo</th>
+            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef>Genero</th>
+            <td mat-cell *matCellDef="let element">
+              @if (element.gender == 'masculino') {
+              <mat-icon fontIcon="male" />
+              } @else{
+              <mat-icon fontIcon="female" />
+              }
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="registrationNumber">
+            <th mat-header-cell *matHeaderCellDef>Numero Matricula</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.registrationNumber }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="program">
+            <th mat-header-cell *matHeaderCellDef>Programa</th>
+            <td mat-cell *matCellDef="let element">{{ element.program }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="averageGrade">
+            <th mat-header-cell *matHeaderCellDef>Nota Promedio</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.averageGrade }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="parkingPass">
+            <th mat-header-cell *matHeaderCellDef>Parqueadero</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-slide-toggle disabled [checked]="element.parkingPass" />
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                matTooltip="Eliminar alumno"
+                mat-stroked-button
+                (click)="deleteAlumno(element.id)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

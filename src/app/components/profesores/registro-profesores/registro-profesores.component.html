@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Registrar Profesor</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form" class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Cédula</mat-label>
+      <input formControlName="id" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre Completo</mat-label>
+      <input formControlName="fullName" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Teléfono</mat-label>
+      <input formControlName="phone" matInput type="tel" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Correo</mat-label>
+      <input formControlName="email" matInput type="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dirección</mat-label>
+      <input formControlName="address" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Genero</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="masculino">Masculino</mat-option>
+        <mat-option value="femenino">Femenino</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dependencia</mat-label>
+      <input formControlName="dependency" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Materia</mat-label>
+      <input formControlName="subject" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Salario</mat-label>
+      <input matInput formControlName="salary" type="number" min="3" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    [disabled]="form.invalid"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="onSubmit()"
+  >
+    Registrar
+  </button>
+</mat-dialog-actions>

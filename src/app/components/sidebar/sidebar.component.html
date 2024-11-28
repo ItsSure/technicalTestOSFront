@@ -1,0 +1,36 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer mode="side" opened>
+    <p class="sidebar-header">Menú</p>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/home"
+        routerLinkActive="active-link"
+        (click)="navigateTo('/home')"
+      >
+        Inicio
+      </a>
+      <a
+        mat-list-item
+        routerLink="/alumnos"
+        routerLinkActive="active-link"
+        (click)="navigateTo('/alumnos')"
+      >
+        Alumnos
+      </a>
+      <a
+        mat-list-item
+        routerLink="/profesores"
+        routerLinkActive="active-link"
+        (click)="navigateTo('/profesores')"
+      >
+        Profesores
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
